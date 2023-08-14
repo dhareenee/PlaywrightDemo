@@ -1,0 +1,42 @@
+const {LoginPage}=require('./LoginPage');
+const {CartPage}=require('./CartPage');
+const {CheckoutPage}=require('./CheckoutPage');
+const {Dashboard}=require('./Dashboard');
+const {OrderReview}=require('./OrderReview');
+
+
+class POManager{
+
+    constructor(page){
+        this.page=page;
+        this.loginPage=new LoginPage(this.page);
+        this.cartPage=new CartPage(this.page);
+        this.checkoutPage=new CheckoutPage(this.page);
+        this.dashboardPage=new Dashboard(this.page);
+        this.ordersReviewPage=new OrderReview(this.page);
+
+    }
+
+
+    getLoginPage(){
+return this.loginPage;
+    }
+
+    getCartPage(){
+        return this.cartPage;
+    }
+
+    getCheckoutPage(){
+        return this.checkoutPage;
+    }
+
+    getDashBoardPage(){
+        return this.dashboardPage;
+    }
+    getOrderReviewPage(){
+        return this.ordersReviewPage;
+    }
+    
+}
+
+module.exports={POManager};
